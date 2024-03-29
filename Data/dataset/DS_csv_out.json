@@ -15,15 +15,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "@variables('filename')",
 				"folderPath": {
-					"value": "@dataset().foldername",
+					"value": "@concat('/Switch-output/',dataset().foldername) ",
 					"type": "Expression"
 				},
-				"fileSystem": "Switch-output"
+				"fileSystem": "output"
 			},
 			"columnDelimiter": ",",
-			"compressionCodec": "ZipDeflate",
-			"compressionLevel": "Optimal",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
