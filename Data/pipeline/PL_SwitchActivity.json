@@ -165,6 +165,49 @@
 														}
 													}
 												]
+											},
+											{
+												"name": "Delete1",
+												"type": "Delete",
+												"dependsOn": [
+													{
+														"activity": "Copy data csv",
+														"dependencyConditions": [
+															"Succeeded"
+														]
+													}
+												],
+												"policy": {
+													"timeout": "0.12:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"dataset": {
+														"referenceName": "DS_csv",
+														"type": "DatasetReference"
+													},
+													"logStorageSettings": {
+														"linkedServiceName": {
+															"referenceName": "LS_csv",
+															"type": "LinkedServiceReference"
+														},
+														"path": "error-log-del"
+													},
+													"enableLogging": true,
+													"storeSettings": {
+														"type": "AzureBlobFSReadSettings",
+														"recursive": true,
+														"wildcardFileName": {
+															"value": "@variables('filename')",
+															"type": "Expression"
+														},
+														"enablePartitionDiscovery": false
+													}
+												}
 											}
 										]
 									},
@@ -228,6 +271,49 @@
 														}
 													}
 												]
+											},
+											{
+												"name": "Delete2",
+												"type": "Delete",
+												"dependsOn": [
+													{
+														"activity": "Copy data json",
+														"dependencyConditions": [
+															"Succeeded"
+														]
+													}
+												],
+												"policy": {
+													"timeout": "0.12:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"dataset": {
+														"referenceName": "DS_Json",
+														"type": "DatasetReference"
+													},
+													"logStorageSettings": {
+														"linkedServiceName": {
+															"referenceName": "LS_csv",
+															"type": "LinkedServiceReference"
+														},
+														"path": "error-log-del"
+													},
+													"enableLogging": true,
+													"storeSettings": {
+														"type": "AzureBlobFSReadSettings",
+														"recursive": true,
+														"wildcardFileName": {
+															"value": "@variables('filename')",
+															"type": "Expression"
+														},
+														"enablePartitionDiscovery": false
+													}
+												}
 											}
 										]
 									},
