@@ -19,9 +19,12 @@
 						"referenceName": "DS_csv",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						"childItems"
+					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -152,7 +155,13 @@
 												"outputs": [
 													{
 														"referenceName": "DS_csv_out",
-														"type": "DatasetReference"
+														"type": "DatasetReference",
+														"parameters": {
+															"foldername": {
+																"value": "@split(activity('Get Metadata1').output.itemName,'.')[1]",
+																"type": "Expression"
+															}
+														}
 													}
 												]
 											}
