@@ -5,6 +5,11 @@
 			"referenceName": "LS_csv_out",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"foldername": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
