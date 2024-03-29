@@ -16,7 +16,10 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "@variables('filename')",
-				"folderPath": "@concat('/Switch-output/',dataset().foldername) ",
+				"folderPath": {
+					"value": "@concat('/Switch-output/',dataset().foldername) ",
+					"type": "Expression"
+				},
 				"fileSystem": "output"
 			}
 		},

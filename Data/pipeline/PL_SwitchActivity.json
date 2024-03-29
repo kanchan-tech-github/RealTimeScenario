@@ -219,7 +219,13 @@
 												"outputs": [
 													{
 														"referenceName": "DS_Json_out",
-														"type": "DatasetReference"
+														"type": "DatasetReference",
+														"parameters": {
+															"foldername": {
+																"value": "@variables('filename')",
+																"type": "Expression"
+															}
+														}
 													}
 												]
 											}
