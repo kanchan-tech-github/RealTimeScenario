@@ -299,20 +299,6 @@
 												]
 											}
 										]
-									},
-									{
-										"value": "jpg",
-										"activities": [
-											{
-												"name": "Wait3",
-												"type": "Wait",
-												"dependsOn": [],
-												"userProperties": [],
-												"typeProperties": {
-													"waitTimeInSeconds": 1
-												}
-											}
-										]
 									}
 								]
 							}
