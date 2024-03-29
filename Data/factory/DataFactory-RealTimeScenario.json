@@ -1,0 +1,9 @@
+{
+	"name": "DataFactory-RealTimeScenario",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5f6ba79c-e1d2-4b67-a6c1-a005d12627ca",
+		"tenantId": "c5b9b96a-7d49-4df4-9f4f-d98de5d4b6df"
+	}
+}
