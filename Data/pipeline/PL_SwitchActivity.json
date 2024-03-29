@@ -186,16 +186,16 @@
 												"userProperties": [],
 												"typeProperties": {
 													"source": {
-														"type": "DelimitedTextSource",
+														"type": "JsonSource",
 														"storeSettings": {
 															"type": "AzureBlobFSReadSettings",
 															"recursive": true,
 															"wildcardFolderPath": "Switch-Input",
-															"wildcardFileName": "*",
+															"wildcardFileName": "@variables('filename')",
 															"enablePartitionDiscovery": false
 														},
 														"formatSettings": {
-															"type": "DelimitedTextReadSettings"
+															"type": "JsonReadSettings"
 														}
 													},
 													"sink": {
@@ -212,7 +212,7 @@
 												},
 												"inputs": [
 													{
-														"referenceName": "DS_csv",
+														"referenceName": "DS_Json",
 														"type": "DatasetReference"
 													}
 												],
