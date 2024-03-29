@@ -252,14 +252,19 @@
 														"storeSettings": {
 															"type": "AzureBlobFSReadSettings",
 															"recursive": true,
-															"wildcardFileName": "*",
+															"wildcardFolderPath": "Switch-Input",
+															"wildcardFileName": {
+																"value": "@variables('filename')",
+																"type": "Expression"
+															},
 															"enablePartitionDiscovery": false
 														}
 													},
 													"sink": {
 														"type": "DelimitedTextSink",
 														"storeSettings": {
-															"type": "AzureBlobFSWriteSettings"
+															"type": "AzureBlobFSWriteSettings",
+															"copyBehavior": "MergeFiles"
 														},
 														"formatSettings": {
 															"type": "DelimitedTextWriteSettings",
