@@ -11,6 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "webout.json",
+				"folderPath": "webActivityOut",
 				"container": "output"
 			},
 			"columnDelimiter": ",",

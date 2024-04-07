@@ -11,6 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "template.txt",
+				"folderPath": "webActivityIn",
 				"container": "input"
 			},
 			"columnDelimiter": ",",
