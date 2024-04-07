@@ -1,7 +1,7 @@
 {
-	"name": "PL_WebActivityDemo",
+	"name": "PL_WebActivityDemo1",
 	"properties": {
-		"description": "This PL_WebActivityDemo , pipeline is used to copy web activity output to the Blob Storage.\n\nThis is method 1 To copy web activity output\n",
+		"description": "This PL_WebActivityDemo1 , pipeline is used to copy web activity output to the Blob Storage.\n\nThis is method 1 To copy web activity output\n",
 		"activities": [
 			{
 				"name": "Web Activity to Read Rest API",
