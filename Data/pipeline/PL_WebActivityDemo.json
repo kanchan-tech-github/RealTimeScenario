@@ -1,0 +1,26 @@
+{
+	"name": "PL_WebActivityDemo",
+	"properties": {
+		"description": "This PL_WebActivityDemo , pipeline is used to copy web activity output to the Blob Storage.\n",
+		"activities": [
+			{
+				"name": "Web Activity Rest API",
+				"description": "Web Activity to call Rest API and Get Data from API.",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://dummyjson.com/products"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
