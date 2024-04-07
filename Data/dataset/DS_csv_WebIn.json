@@ -1,5 +1,5 @@
 {
-	"name": "DS_csv_webout",
+	"name": "DS_csv_WebIn",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Json_In",
@@ -10,14 +10,18 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "webout.json",
-				"container": "output"
+				"fileName": "template.txt",
+				"container": "input"
 			},
 			"columnDelimiter": ",",
-			"escapeChar": "",
-			"firstRowAsHeader": true,
-			"quoteChar": ""
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"type": "String"
+			}
+		]
 	}
 }
