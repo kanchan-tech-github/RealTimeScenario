@@ -11,6 +11,9 @@
 		"LS_csv_out_accountKey": {
 			"value": ""
 		},
+		"LS_Json_In_connectionString": {
+			"value": ""
+		},
 		"LS_csv_properties_typeProperties_url": {
 			"value": "https://adls0container.dfs.core.windows.net/"
 		},
