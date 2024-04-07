@@ -81,6 +81,39 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/PL_WebActivityDemo2')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "This PL_WebActivityDemo2 , pipeline is used to copy web activity output to the Blob Storage.\n\nThis is method 2 To copy web activity output",
+				"activities": [
+					{
+						"name": "Web Activity",
+						"type": "WebActivity",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"method": "GET",
+							"headers": {},
+							"url": "https://dummyjson.com/products"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_Excel')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -853,11 +886,11 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/PL_WebActivityDemo')]",
+			"name": "[concat(parameters('factoryName'), '/PL_WebActivityDemo1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "This PL_WebActivityDemo , pipeline is used to copy web activity output to the Blob Storage.\n\nThis is method 1 To copy web activity output\n",
+				"description": "This PL_WebActivityDemo1 , pipeline is used to copy web activity output to the Blob Storage.\n\nThis is method 1 To copy web activity output\n",
 				"activities": [
 					{
 						"name": "Web Activity to Read Rest API",
