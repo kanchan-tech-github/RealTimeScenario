@@ -39,7 +39,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "input//dwsamplejson.json"
+					},
+					{
+						"name": "Destination",
+						"value": "output//"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "JsonSource",
@@ -47,7 +56,7 @@
 							{
 								"name": "myCol",
 								"value": {
-									"value": "@activity('Web Activity to Read Rest API').output.products",
+									"value": "@{activity('Web Activity to Read Rest API').output.products}",
 									"type": "Expression"
 								}
 							}
@@ -55,6 +64,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
