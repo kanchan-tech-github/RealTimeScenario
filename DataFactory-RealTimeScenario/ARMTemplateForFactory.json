@@ -1050,6 +1050,70 @@
 				"annotations": []
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SavePDF')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "PL_SavePDF , this pipeline is used to ",
+				"activities": [
+					{
+						"name": "Web Act to read pdf from API",
+						"type": "WebActivity",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"method": "GET",
+							"headers": {},
+							"url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+						}
+					},
+					{
+						"name": "Web Act to save PDF",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Web Act to read pdf from API",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"method": "PUT",
+							"headers": {
+								"x-ms-blob-type": "BlockBlob"
+							},
+							"url": "https://blob0container.blob.core.windows.net/pdfout/sample.pdf?sp=racwdli&st=2024-04-07T08:29:49Z&se=2024-04-07T16:29:49Z&sv=2022-11-02&sr=c&sig=bG46xbXJ6yqFi0ZXlNj1DyK3TCHgXCEyQjrhxLtpvYE%3D",
+							"body": {
+								"value": "@activity('Web Act to read pdf from API').output.Response",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		}
 	]
 }
