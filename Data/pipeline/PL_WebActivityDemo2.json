@@ -4,7 +4,7 @@
 		"description": "This PL_WebActivityDemo2 , pipeline is used to copy web activity output to the Blob Storage.\n\nThis is method 2 To copy web activity output",
 		"activities": [
 			{
-				"name": "Web Activity",
+				"name": "Web Activity To read API",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
@@ -18,6 +18,37 @@
 				"typeProperties": {
 					"method": "GET",
 					"url": "https://dummyjson.com/products"
+				}
+			},
+			{
+				"name": "Web Activity to put API Data",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Web Activity To read API",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "PUT",
+					"headers": {
+						"x-ms-blob-type": "BlockBlob"
+					},
+					"url": "https://blob0container.blob.core.windows.net/output/webout2.json?sp=racw&st=2024-04-07T06:46:48Z&se=2024-04-07T14:46:48Z&spr=https&sv=2022-11-02&sr=c&sig=ljPXD38iag%2FGrql%2B6Ve7AzBX8bPJyBJhwb2ii4fjPzQ%3D",
+					"body": {
+						"value": "@activity('Web Activity To read API').output.products",
+						"type": "Expression"
+					}
 				}
 			}
 		],
